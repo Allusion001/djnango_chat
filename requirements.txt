@@ -7,3 +7,4 @@ django-htmx
 channels
 django-environ
 shortuuid
+dj-database-url
