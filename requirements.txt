@@ -8,3 +8,4 @@ channels
 django-environ
 shortuuid
 dj-database-url
+psycopg2
