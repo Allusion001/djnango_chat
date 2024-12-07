@@ -18,7 +18,7 @@ env=Env()
 Env.read_env()
 
 ENVIRONMENT=env('ENVIRONMENT',default='production')
-ENVIRONMENT='development'
+ENVIRONMENT='production'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -189,7 +189,7 @@ EMAIL_USE_SSL=False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 
-if ENVIRONMENT=='development':
+if ENVIRONMENT=='production':
     CHANNEL_LAYERS = {
         "default": {
             "BACKEND": 'channels.layers.InMemoryChannelLayer',
