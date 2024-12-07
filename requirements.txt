@@ -1,4 +1,5 @@
 Django
+daphne
 pillow
 django-cleanup
 django-allauth
