@@ -10,9 +10,9 @@ from environ import Env
 
 @login_required
 def chat_view(request, chatroom_name='public-chat'):
-   
+
     chat_group=get_object_or_404(ChatGroup,group_name=chatroom_name)
-    if chatroom_name=='public-chat' and request.user not in chat_group.members.all():
+    if request.user not in chat_group.members.all():
         chat_group.members.add(request.user)
     chat_messages=chat_group.group_messages.all()
     form = ChatMessageCreateForm()

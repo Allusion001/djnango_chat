@@ -16,17 +16,16 @@
                 <div class="dropdown-content">
                 {% for chatroom in user.chat_groups.all %}
                      {% if chatroom.groupchat_name%} 
-                        {%for chatroom in chatroom.groupchat_name.all%}
-                             <a href="{% url 'chatroom' chatroom %}">{{ chatroom }}</a>
-                        {%endfor%}
+                             <a href="{% url 'chatroom' chatroom %}">{{ chatroom.groupchat_name }}</a>
+            
                      {%endif%}
 
-                        {% for member in chatroom.members.all %}
+                        <!-- {% for member in chatroom.members.all %}!
                             {% if member != user %}
                             <a href="{% url 'chatroom' chatroom.group_name %}">{{ member.profile.name }}</a>
                             
                             {% endif %}
-                        {% endfor %}
+                        {% endfor %} -->
 
                 {% endfor %} 
 

@@ -66,7 +66,7 @@ class ChatroomConsumer(WebsocketConsumer):
 
     def update_online_count(self):
         online_count=self.chatroom.users_online.count()-1
-        
+    
         event={
             'type':'onlineHandler',
             'online_count':online_count
@@ -147,7 +147,7 @@ class OnlineStatusConsumer(WebsocketConsumer):
             online_in_chats=False
 
         context={
-            'online_users':online_users,
+            'online_users':online_users.count()-1,
             'online_in_chats':online_in_chats,
             'public_chat_users':public_chat_users,
         }
