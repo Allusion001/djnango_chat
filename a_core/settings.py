@@ -47,6 +47,8 @@ else:
 
 # Application definition
 
+ DEBUG=False
+
 INSTALLED_APPS = [
  
     'daphne',
