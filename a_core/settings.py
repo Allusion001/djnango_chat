@@ -46,7 +46,7 @@ else:
     DEBUG=False
 
 # Application definition
-DEBUG = True
+
 
 INSTALLED_APPS = [
  
