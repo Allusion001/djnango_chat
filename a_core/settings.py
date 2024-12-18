@@ -35,9 +35,9 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*','djnango-chat.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*','galleryapp-hv3w.onrender.com']
 
-CSRF_TRUSTED_ORIGINS = [ 'https://*','http://*' ,'https://djnango-chat.onrender.com']
+CSRF_TRUSTED_ORIGINS = [ 'https://*','http://*' ,'https://galleryapp-hv3w.onrender.com']
 
 
 if ENVIRONMENT=='development':
