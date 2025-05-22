@@ -37,13 +37,13 @@ SECRET_KEY = env('SECRET_KEY')
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*','::1']
 
-CSRF_TRUSTED_ORIGINS = [ 'https://*','http://*' ,'https://galleryapp-hv3w.onrender.com']
+CSRF_TRUSTED_ORIGINS = [ 'https://*','http://*' ,'https://galleryapp-hv3w.onrender.com','https://djnango-chat.onrender.com']
 
 
 if ENVIRONMENT=='production':
-    DEBUG=True
-else:
     DEBUG=False
+else:
+    DEBUG=True
 
 # Application definition
 
