@@ -20,7 +20,7 @@ env=Env()
 Env.read_env()
 
 ENVIRONMENT=env('ENVIRONMENT',default='production')
-ENVIRONMENT='production'
+ENVIRONMENT='development'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,7 +35,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*','galleryapp-hv3w.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*','::1']
 
 CSRF_TRUSTED_ORIGINS = [ 'https://*','http://*' ,'https://galleryapp-hv3w.onrender.com']
 
@@ -204,9 +204,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_SIGNUP_REDIRECT_URL = "{% url 'account_signup' %}?next={% url 'profile-onboarding' %}"
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = env('EMAIL_ADDRESS')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
@@ -218,16 +219,8 @@ EMAIL_USE_SSL=False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 
-if ENVIRONMENT=='production':
-    CHANNEL_LAYERS = {
+CHANNEL_LAYERS = {
         "default": {
             "BACKEND": 'channels.layers.InMemoryChannelLayer',
-            },
-    }
-else:
-    CHANNEL_LAYERS = {
-        "default": {
-            "BACKEND": 'channels_redis.core.RedisChannelLayer',
-            "CONFIG": {"hosts":[(env('REDIS_URL'))]}
             },
     }
